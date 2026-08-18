@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccessoriesRouteImport } from './routes/accessories'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as FootwearRouteImport } from './routes/footwear'
 import { Route as KidsRouteImport } from './routes/kids'
 import { Route as MenRouteImport } from './routes/men'
@@ -26,6 +27,7 @@ import { Route as BrandsIndexRouteImport } from './routes/brands.index'
 import { Route as BrandsBrandRouteImport } from './routes/brands.$brand'
 import { Route as ClothingIndexRouteImport } from './routes/clothing.index'
 import { Route as ClothingCategoryRouteImport } from './routes/clothing.$category'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as SportsIndexRouteImport } from './routes/sports.index'
 import { Route as SportsSportRouteImport } from './routes/sports.$sport'
 
@@ -42,6 +44,11 @@ const AccessoriesRoute = AccessoriesRouteImport.update({
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FootwearRoute = FootwearRouteImport.update({
@@ -114,6 +121,11 @@ const ClothingCategoryRoute = ClothingCategoryRouteImport.update({
   path: '/clothing/$category',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SportsIndexRoute = SportsIndexRouteImport.update({
   id: '/sports/',
   path: '/sports/',
@@ -129,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessories': typeof AccessoriesRoute
   '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
   '/footwear': typeof FootwearRoute
   '/kids': typeof KidsRoute
   '/men': typeof MenRoute
@@ -141,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/women': typeof WomenRoute
   '/brands/$brand': typeof BrandsBrandRoute
   '/clothing/$category': typeof ClothingCategoryRoute
+  '/product/$slug': typeof ProductSlugRoute
   '/sports/$sport': typeof SportsSportRoute
   '/brands/': typeof BrandsIndexRoute
   '/clothing/': typeof ClothingIndexRoute
@@ -150,6 +164,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessories': typeof AccessoriesRoute
   '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
   '/footwear': typeof FootwearRoute
   '/kids': typeof KidsRoute
   '/men': typeof MenRoute
@@ -162,6 +177,7 @@ export interface FileRoutesByTo {
   '/women': typeof WomenRoute
   '/brands/$brand': typeof BrandsBrandRoute
   '/clothing/$category': typeof ClothingCategoryRoute
+  '/product/$slug': typeof ProductSlugRoute
   '/sports/$sport': typeof SportsSportRoute
   '/brands': typeof BrandsIndexRoute
   '/clothing': typeof ClothingIndexRoute
@@ -172,6 +188,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accessories': typeof AccessoriesRoute
   '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
   '/footwear': typeof FootwearRoute
   '/kids': typeof KidsRoute
   '/men': typeof MenRoute
@@ -184,6 +201,7 @@ export interface FileRoutesById {
   '/women': typeof WomenRoute
   '/brands/$brand': typeof BrandsBrandRoute
   '/clothing/$category': typeof ClothingCategoryRoute
+  '/product/$slug': typeof ProductSlugRoute
   '/sports/$sport': typeof SportsSportRoute
   '/brands/': typeof BrandsIndexRoute
   '/clothing/': typeof ClothingIndexRoute
@@ -195,6 +213,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessories'
     | '/account'
+    | '/checkout'
     | '/footwear'
     | '/kids'
     | '/men'
@@ -207,6 +226,7 @@ export interface FileRouteTypes {
     | '/women'
     | '/brands/$brand'
     | '/clothing/$category'
+    | '/product/$slug'
     | '/sports/$sport'
     | '/brands/'
     | '/clothing/'
@@ -216,6 +236,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessories'
     | '/account'
+    | '/checkout'
     | '/footwear'
     | '/kids'
     | '/men'
@@ -228,6 +249,7 @@ export interface FileRouteTypes {
     | '/women'
     | '/brands/$brand'
     | '/clothing/$category'
+    | '/product/$slug'
     | '/sports/$sport'
     | '/brands'
     | '/clothing'
@@ -237,6 +259,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessories'
     | '/account'
+    | '/checkout'
     | '/footwear'
     | '/kids'
     | '/men'
@@ -249,6 +272,7 @@ export interface FileRouteTypes {
     | '/women'
     | '/brands/$brand'
     | '/clothing/$category'
+    | '/product/$slug'
     | '/sports/$sport'
     | '/brands/'
     | '/clothing/'
@@ -259,6 +283,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessoriesRoute: typeof AccessoriesRoute
   AccountRoute: typeof AccountRoute
+  CheckoutRoute: typeof CheckoutRoute
   FootwearRoute: typeof FootwearRoute
   KidsRoute: typeof KidsRoute
   MenRoute: typeof MenRoute
@@ -271,6 +296,7 @@ export interface RootRouteChildren {
   WomenRoute: typeof WomenRoute
   BrandsBrandRoute: typeof BrandsBrandRoute
   ClothingCategoryRoute: typeof ClothingCategoryRoute
+  ProductSlugRoute: typeof ProductSlugRoute
   SportsSportRoute: typeof SportsSportRoute
   BrandsIndexRoute: typeof BrandsIndexRoute
   ClothingIndexRoute: typeof ClothingIndexRoute
@@ -298,6 +324,13 @@ declare module '@tanstack/react-router' {
       path: '/account'
       fullPath: '/account'
       preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/footwear': {
@@ -398,6 +431,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClothingCategoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sports/': {
       id: '/sports/'
       path: '/sports'
@@ -419,6 +459,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessoriesRoute: AccessoriesRoute,
   AccountRoute: AccountRoute,
+  CheckoutRoute: CheckoutRoute,
   FootwearRoute: FootwearRoute,
   KidsRoute: KidsRoute,
   MenRoute: MenRoute,
@@ -431,6 +472,7 @@ const rootRouteChildren: RootRouteChildren = {
   WomenRoute: WomenRoute,
   BrandsBrandRoute: BrandsBrandRoute,
   ClothingCategoryRoute: ClothingCategoryRoute,
+  ProductSlugRoute: ProductSlugRoute,
   SportsSportRoute: SportsSportRoute,
   BrandsIndexRoute: BrandsIndexRoute,
   ClothingIndexRoute: ClothingIndexRoute,
