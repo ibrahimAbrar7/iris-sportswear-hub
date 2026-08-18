@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, type LinkProps } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -20,7 +20,7 @@ export function SectionHeader({
   );
 }
 
-export function TextLink({ to, children }: { to: string; children: ReactNode }) {
+export function TextLink({ to, children }: { to: LinkProps["to"]; children: ReactNode }) {
   return (
     <Link to={to} className="eyebrow rule-link">
       {children}
