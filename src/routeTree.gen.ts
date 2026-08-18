@@ -10,33 +10,297 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccessoriesRouteImport } from './routes/accessories'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as FootwearRouteImport } from './routes/footwear'
+import { Route as KidsRouteImport } from './routes/kids'
+import { Route as MenRouteImport } from './routes/men'
+import { Route as NewInRouteImport } from './routes/new-in'
+import { Route as SaleRouteImport } from './routes/sale'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SportEditRouteImport } from './routes/sport-edit'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as WomenRouteImport } from './routes/women'
+import { Route as BrandsIndexRouteImport } from './routes/brands.index'
+import { Route as BrandsBrandRouteImport } from './routes/brands.$brand'
+import { Route as ClothingIndexRouteImport } from './routes/clothing.index'
+import { Route as ClothingCategoryRouteImport } from './routes/clothing.$category'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
+import { Route as SportsIndexRouteImport } from './routes/sports.index'
+import { Route as SportsSportRouteImport } from './routes/sports.$sport'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessoriesRoute = AccessoriesRouteImport.update({
+  id: '/accessories',
+  path: '/accessories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FootwearRoute = FootwearRouteImport.update({
+  id: '/footwear',
+  path: '/footwear',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KidsRoute = KidsRouteImport.update({
+  id: '/kids',
+  path: '/kids',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenRoute = MenRouteImport.update({
+  id: '/men',
+  path: '/men',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewInRoute = NewInRouteImport.update({
+  id: '/new-in',
+  path: '/new-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SaleRoute = SaleRouteImport.update({
+  id: '/sale',
+  path: '/sale',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportEditRoute = SportEditRouteImport.update({
+  id: '/sport-edit',
+  path: '/sport-edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WomenRoute = WomenRouteImport.update({
+  id: '/women',
+  path: '/women',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandsIndexRoute = BrandsIndexRouteImport.update({
+  id: '/brands/',
+  path: '/brands/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandsBrandRoute = BrandsBrandRouteImport.update({
+  id: '/brands/$brand',
+  path: '/brands/$brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClothingIndexRoute = ClothingIndexRouteImport.update({
+  id: '/clothing/',
+  path: '/clothing/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClothingCategoryRoute = ClothingCategoryRouteImport.update({
+  id: '/clothing/$category',
+  path: '/clothing/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsIndexRoute = SportsIndexRouteImport.update({
+  id: '/sports/',
+  path: '/sports/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsSportRoute = SportsSportRouteImport.update({
+  id: '/sports/$sport',
+  path: '/sports/$sport',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessories': typeof AccessoriesRoute
+  '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
+  '/footwear': typeof FootwearRoute
+  '/kids': typeof KidsRoute
+  '/men': typeof MenRoute
+  '/new-in': typeof NewInRoute
+  '/sale': typeof SaleRoute
+  '/search': typeof SearchRoute
+  '/shop': typeof ShopRoute
+  '/sport-edit': typeof SportEditRoute
+  '/wishlist': typeof WishlistRoute
+  '/women': typeof WomenRoute
+  '/brands/$brand': typeof BrandsBrandRoute
+  '/clothing/$category': typeof ClothingCategoryRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/sports/$sport': typeof SportsSportRoute
+  '/brands/': typeof BrandsIndexRoute
+  '/clothing/': typeof ClothingIndexRoute
+  '/sports/': typeof SportsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessories': typeof AccessoriesRoute
+  '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
+  '/footwear': typeof FootwearRoute
+  '/kids': typeof KidsRoute
+  '/men': typeof MenRoute
+  '/new-in': typeof NewInRoute
+  '/sale': typeof SaleRoute
+  '/search': typeof SearchRoute
+  '/shop': typeof ShopRoute
+  '/sport-edit': typeof SportEditRoute
+  '/wishlist': typeof WishlistRoute
+  '/women': typeof WomenRoute
+  '/brands/$brand': typeof BrandsBrandRoute
+  '/clothing/$category': typeof ClothingCategoryRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/sports/$sport': typeof SportsSportRoute
+  '/brands': typeof BrandsIndexRoute
+  '/clothing': typeof ClothingIndexRoute
+  '/sports': typeof SportsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessories': typeof AccessoriesRoute
+  '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
+  '/footwear': typeof FootwearRoute
+  '/kids': typeof KidsRoute
+  '/men': typeof MenRoute
+  '/new-in': typeof NewInRoute
+  '/sale': typeof SaleRoute
+  '/search': typeof SearchRoute
+  '/shop': typeof ShopRoute
+  '/sport-edit': typeof SportEditRoute
+  '/wishlist': typeof WishlistRoute
+  '/women': typeof WomenRoute
+  '/brands/$brand': typeof BrandsBrandRoute
+  '/clothing/$category': typeof ClothingCategoryRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/sports/$sport': typeof SportsSportRoute
+  '/brands/': typeof BrandsIndexRoute
+  '/clothing/': typeof ClothingIndexRoute
+  '/sports/': typeof SportsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accessories'
+    | '/account'
+    | '/checkout'
+    | '/footwear'
+    | '/kids'
+    | '/men'
+    | '/new-in'
+    | '/sale'
+    | '/search'
+    | '/shop'
+    | '/sport-edit'
+    | '/wishlist'
+    | '/women'
+    | '/brands/$brand'
+    | '/clothing/$category'
+    | '/product/$slug'
+    | '/sports/$sport'
+    | '/brands/'
+    | '/clothing/'
+    | '/sports/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accessories'
+    | '/account'
+    | '/checkout'
+    | '/footwear'
+    | '/kids'
+    | '/men'
+    | '/new-in'
+    | '/sale'
+    | '/search'
+    | '/shop'
+    | '/sport-edit'
+    | '/wishlist'
+    | '/women'
+    | '/brands/$brand'
+    | '/clothing/$category'
+    | '/product/$slug'
+    | '/sports/$sport'
+    | '/brands'
+    | '/clothing'
+    | '/sports'
+  id:
+    | '__root__'
+    | '/'
+    | '/accessories'
+    | '/account'
+    | '/checkout'
+    | '/footwear'
+    | '/kids'
+    | '/men'
+    | '/new-in'
+    | '/sale'
+    | '/search'
+    | '/shop'
+    | '/sport-edit'
+    | '/wishlist'
+    | '/women'
+    | '/brands/$brand'
+    | '/clothing/$category'
+    | '/product/$slug'
+    | '/sports/$sport'
+    | '/brands/'
+    | '/clothing/'
+    | '/sports/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessoriesRoute: typeof AccessoriesRoute
+  AccountRoute: typeof AccountRoute
+  CheckoutRoute: typeof CheckoutRoute
+  FootwearRoute: typeof FootwearRoute
+  KidsRoute: typeof KidsRoute
+  MenRoute: typeof MenRoute
+  NewInRoute: typeof NewInRoute
+  SaleRoute: typeof SaleRoute
+  SearchRoute: typeof SearchRoute
+  ShopRoute: typeof ShopRoute
+  SportEditRoute: typeof SportEditRoute
+  WishlistRoute: typeof WishlistRoute
+  WomenRoute: typeof WomenRoute
+  BrandsBrandRoute: typeof BrandsBrandRoute
+  ClothingCategoryRoute: typeof ClothingCategoryRoute
+  ProductSlugRoute: typeof ProductSlugRoute
+  SportsSportRoute: typeof SportsSportRoute
+  BrandsIndexRoute: typeof BrandsIndexRoute
+  ClothingIndexRoute: typeof ClothingIndexRoute
+  SportsIndexRoute: typeof SportsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +312,171 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accessories': {
+      id: '/accessories'
+      path: '/accessories'
+      fullPath: '/accessories'
+      preLoaderRoute: typeof AccessoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/footwear': {
+      id: '/footwear'
+      path: '/footwear'
+      fullPath: '/footwear'
+      preLoaderRoute: typeof FootwearRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kids': {
+      id: '/kids'
+      path: '/kids'
+      fullPath: '/kids'
+      preLoaderRoute: typeof KidsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/men': {
+      id: '/men'
+      path: '/men'
+      fullPath: '/men'
+      preLoaderRoute: typeof MenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-in': {
+      id: '/new-in'
+      path: '/new-in'
+      fullPath: '/new-in'
+      preLoaderRoute: typeof NewInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sale': {
+      id: '/sale'
+      path: '/sale'
+      fullPath: '/sale'
+      preLoaderRoute: typeof SaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sport-edit': {
+      id: '/sport-edit'
+      path: '/sport-edit'
+      fullPath: '/sport-edit'
+      preLoaderRoute: typeof SportEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/women': {
+      id: '/women'
+      path: '/women'
+      fullPath: '/women'
+      preLoaderRoute: typeof WomenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brands/': {
+      id: '/brands/'
+      path: '/brands'
+      fullPath: '/brands/'
+      preLoaderRoute: typeof BrandsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brands/$brand': {
+      id: '/brands/$brand'
+      path: '/brands/$brand'
+      fullPath: '/brands/$brand'
+      preLoaderRoute: typeof BrandsBrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clothing/': {
+      id: '/clothing/'
+      path: '/clothing'
+      fullPath: '/clothing/'
+      preLoaderRoute: typeof ClothingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clothing/$category': {
+      id: '/clothing/$category'
+      path: '/clothing/$category'
+      fullPath: '/clothing/$category'
+      preLoaderRoute: typeof ClothingCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/': {
+      id: '/sports/'
+      path: '/sports'
+      fullPath: '/sports/'
+      preLoaderRoute: typeof SportsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/$sport': {
+      id: '/sports/$sport'
+      path: '/sports/$sport'
+      fullPath: '/sports/$sport'
+      preLoaderRoute: typeof SportsSportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessoriesRoute: AccessoriesRoute,
+  AccountRoute: AccountRoute,
+  CheckoutRoute: CheckoutRoute,
+  FootwearRoute: FootwearRoute,
+  KidsRoute: KidsRoute,
+  MenRoute: MenRoute,
+  NewInRoute: NewInRoute,
+  SaleRoute: SaleRoute,
+  SearchRoute: SearchRoute,
+  ShopRoute: ShopRoute,
+  SportEditRoute: SportEditRoute,
+  WishlistRoute: WishlistRoute,
+  WomenRoute: WomenRoute,
+  BrandsBrandRoute: BrandsBrandRoute,
+  ClothingCategoryRoute: ClothingCategoryRoute,
+  ProductSlugRoute: ProductSlugRoute,
+  SportsSportRoute: SportsSportRoute,
+  BrandsIndexRoute: BrandsIndexRoute,
+  ClothingIndexRoute: ClothingIndexRoute,
+  SportsIndexRoute: SportsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
