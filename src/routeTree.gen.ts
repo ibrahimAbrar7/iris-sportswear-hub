@@ -21,6 +21,8 @@ import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SportEditRouteImport } from './routes/sport-edit'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as WomenRouteImport } from './routes/women'
+import { Route as SportsIndexRouteImport } from './routes/sports.index'
+import { Route as SportsSportRouteImport } from './routes/sports.$sport'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -82,6 +84,16 @@ const WomenRoute = WomenRouteImport.update({
   path: '/women',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SportsIndexRoute = SportsIndexRouteImport.update({
+  id: '/sports/',
+  path: '/sports/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsSportRoute = SportsSportRouteImport.update({
+  id: '/sports/$sport',
+  path: '/sports/$sport',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +108,8 @@ export interface FileRoutesByFullPath {
   '/sport-edit': typeof SportEditRoute
   '/wishlist': typeof WishlistRoute
   '/women': typeof WomenRoute
+  '/sports/$sport': typeof SportsSportRoute
+  '/sports/': typeof SportsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +124,8 @@ export interface FileRoutesByTo {
   '/sport-edit': typeof SportEditRoute
   '/wishlist': typeof WishlistRoute
   '/women': typeof WomenRoute
+  '/sports/$sport': typeof SportsSportRoute
+  '/sports': typeof SportsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +141,8 @@ export interface FileRoutesById {
   '/sport-edit': typeof SportEditRoute
   '/wishlist': typeof WishlistRoute
   '/women': typeof WomenRoute
+  '/sports/$sport': typeof SportsSportRoute
+  '/sports/': typeof SportsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +159,8 @@ export interface FileRouteTypes {
     | '/sport-edit'
     | '/wishlist'
     | '/women'
+    | '/sports/$sport'
+    | '/sports/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +175,8 @@ export interface FileRouteTypes {
     | '/sport-edit'
     | '/wishlist'
     | '/women'
+    | '/sports/$sport'
+    | '/sports'
   id:
     | '__root__'
     | '/'
@@ -169,6 +191,8 @@ export interface FileRouteTypes {
     | '/sport-edit'
     | '/wishlist'
     | '/women'
+    | '/sports/$sport'
+    | '/sports/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,6 +208,8 @@ export interface RootRouteChildren {
   SportEditRoute: typeof SportEditRoute
   WishlistRoute: typeof WishlistRoute
   WomenRoute: typeof WomenRoute
+  SportsSportRoute: typeof SportsSportRoute
+  SportsIndexRoute: typeof SportsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -272,6 +298,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WomenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sports/': {
+      id: '/sports/'
+      path: '/sports'
+      fullPath: '/sports/'
+      preLoaderRoute: typeof SportsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/$sport': {
+      id: '/sports/$sport'
+      path: '/sports/$sport'
+      fullPath: '/sports/$sport'
+      preLoaderRoute: typeof SportsSportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -288,6 +328,8 @@ const rootRouteChildren: RootRouteChildren = {
   SportEditRoute: SportEditRoute,
   WishlistRoute: WishlistRoute,
   WomenRoute: WomenRoute,
+  SportsSportRoute: SportsSportRoute,
+  SportsIndexRoute: SportsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
