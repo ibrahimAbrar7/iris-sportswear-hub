@@ -11,10 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccessoriesRouteImport } from './routes/accessories'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as FootwearRouteImport } from './routes/footwear'
+import { Route as KidsRouteImport } from './routes/kids'
+import { Route as MenRouteImport } from './routes/men'
 import { Route as NewInRouteImport } from './routes/new-in'
 import { Route as SaleRouteImport } from './routes/sale'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SportEditRouteImport } from './routes/sport-edit'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as WomenRouteImport } from './routes/women'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,9 +32,24 @@ const AccessoriesRoute = AccessoriesRouteImport.update({
   path: '/accessories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FootwearRoute = FootwearRouteImport.update({
   id: '/footwear',
   path: '/footwear',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KidsRoute = KidsRouteImport.update({
+  id: '/kids',
+  path: '/kids',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenRoute = MenRouteImport.update({
+  id: '/men',
+  path: '/men',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewInRoute = NewInRouteImport.update({
@@ -46,54 +67,123 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SportEditRoute = SportEditRouteImport.update({
+  id: '/sport-edit',
+  path: '/sport-edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WomenRoute = WomenRouteImport.update({
+  id: '/women',
+  path: '/women',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessories': typeof AccessoriesRoute
+  '/account': typeof AccountRoute
   '/footwear': typeof FootwearRoute
+  '/kids': typeof KidsRoute
+  '/men': typeof MenRoute
   '/new-in': typeof NewInRoute
   '/sale': typeof SaleRoute
   '/shop': typeof ShopRoute
+  '/sport-edit': typeof SportEditRoute
+  '/wishlist': typeof WishlistRoute
+  '/women': typeof WomenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessories': typeof AccessoriesRoute
+  '/account': typeof AccountRoute
   '/footwear': typeof FootwearRoute
+  '/kids': typeof KidsRoute
+  '/men': typeof MenRoute
   '/new-in': typeof NewInRoute
   '/sale': typeof SaleRoute
   '/shop': typeof ShopRoute
+  '/sport-edit': typeof SportEditRoute
+  '/wishlist': typeof WishlistRoute
+  '/women': typeof WomenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/accessories': typeof AccessoriesRoute
+  '/account': typeof AccountRoute
   '/footwear': typeof FootwearRoute
+  '/kids': typeof KidsRoute
+  '/men': typeof MenRoute
   '/new-in': typeof NewInRoute
   '/sale': typeof SaleRoute
   '/shop': typeof ShopRoute
+  '/sport-edit': typeof SportEditRoute
+  '/wishlist': typeof WishlistRoute
+  '/women': typeof WomenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/accessories' | '/footwear' | '/new-in' | '/sale' | '/shop'
+  fullPaths:
+    | '/'
+    | '/accessories'
+    | '/account'
+    | '/footwear'
+    | '/kids'
+    | '/men'
+    | '/new-in'
+    | '/sale'
+    | '/shop'
+    | '/sport-edit'
+    | '/wishlist'
+    | '/women'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/accessories' | '/footwear' | '/new-in' | '/sale' | '/shop'
+  to:
+    | '/'
+    | '/accessories'
+    | '/account'
+    | '/footwear'
+    | '/kids'
+    | '/men'
+    | '/new-in'
+    | '/sale'
+    | '/shop'
+    | '/sport-edit'
+    | '/wishlist'
+    | '/women'
   id:
     | '__root__'
     | '/'
     | '/accessories'
+    | '/account'
     | '/footwear'
+    | '/kids'
+    | '/men'
     | '/new-in'
     | '/sale'
     | '/shop'
+    | '/sport-edit'
+    | '/wishlist'
+    | '/women'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessoriesRoute: typeof AccessoriesRoute
+  AccountRoute: typeof AccountRoute
   FootwearRoute: typeof FootwearRoute
+  KidsRoute: typeof KidsRoute
+  MenRoute: typeof MenRoute
   NewInRoute: typeof NewInRoute
   SaleRoute: typeof SaleRoute
   ShopRoute: typeof ShopRoute
+  SportEditRoute: typeof SportEditRoute
+  WishlistRoute: typeof WishlistRoute
+  WomenRoute: typeof WomenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -112,11 +202,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccessoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/footwear': {
       id: '/footwear'
       path: '/footwear'
       fullPath: '/footwear'
       preLoaderRoute: typeof FootwearRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kids': {
+      id: '/kids'
+      path: '/kids'
+      fullPath: '/kids'
+      preLoaderRoute: typeof KidsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/men': {
+      id: '/men'
+      path: '/men'
+      fullPath: '/men'
+      preLoaderRoute: typeof MenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new-in': {
@@ -140,16 +251,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sport-edit': {
+      id: '/sport-edit'
+      path: '/sport-edit'
+      fullPath: '/sport-edit'
+      preLoaderRoute: typeof SportEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/women': {
+      id: '/women'
+      path: '/women'
+      fullPath: '/women'
+      preLoaderRoute: typeof WomenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessoriesRoute: AccessoriesRoute,
+  AccountRoute: AccountRoute,
   FootwearRoute: FootwearRoute,
+  KidsRoute: KidsRoute,
+  MenRoute: MenRoute,
   NewInRoute: NewInRoute,
   SaleRoute: SaleRoute,
   ShopRoute: ShopRoute,
+  SportEditRoute: SportEditRoute,
+  WishlistRoute: WishlistRoute,
+  WomenRoute: WomenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
